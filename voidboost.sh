@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # İnstalling basic stuff
-echo Hello $USER, welcome to the Voidoost!
+echo Hello $USER, welcome to the VoidBoost!
 echo
 echo Installing required programs and libraries:
 echo -----------------------------
@@ -14,17 +14,18 @@ rm /var/Service/lxdm && ln -s /etc/sv/lightdm /var/service/
 sleep 3
 
 #Driver configuration
-echo What brand of gpu are you using? (intel/nvidia)
+echo "What brand of gpu are you using? (intel/nvidia)"
 read answer
 
 if [ $answer = 'intel' ]
 then 
 sudo xbps-install -Syv mesa-dri mesa-dri-32bit mesa-vulkan-intel mesa-vulkan-intel-32bit libglapi libglapi-32bit libglvnd libva-glx-32bit
+exit
 fi
 
 if [ $answer = 'nvidia' ]
 then
-echo Which type of drivers would you like to install?[nouveau/nvidia)
+echo "Which type of drivers would you like to install?[nouveau/nvidia)"
 read answer
 	if [ $answer = nouveau ]
 	then
@@ -33,6 +34,8 @@ read answer
 	if [ $answer = nvidia ]
 	then
 	sudo xbps-install -Syv nvidia nvidia-libs-32bit
+	exit
 	fi
 
 echo Void Boost has finished installing the libraries and drivers.You may now use your system.
+exit
