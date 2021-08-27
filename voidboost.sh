@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # İnstalling basic stuff
-echo Hello $USER.
+echo Hello $USER, welcome to the Voidoost!
 echo
 echo Installing required programs and libraries:
 echo -----------------------------
@@ -35,4 +35,4 @@ read answer
 	sudo xbps-install -Syv nvidia nvidia-libs-32bit
 	fi
 
-echo Void Boost has finished installing the libraries and drivers.You may now use your system
+echo Void Boost has finished installing the libraries and drivers.You may now use your system.
