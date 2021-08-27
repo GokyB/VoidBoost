@@ -1,2 +1,6 @@
-# VoidBoost
-A simple starter for the Void Linux systems. Installs base stuff, configurates drivers and enables lightdm as greeter
+Welcome to the Void Boost!
+This program will install the basic libraries and configure your drivers.
+
+To use it:
+$ chmod +x voidboost.sh
+$ sudo ./voidboost.sh
