@@ -19,13 +19,13 @@ wait 3
 
 read -p  "Please select a desktop enviroment (gnome/kde/xfce): " DE
 case $DE in
-    [gG] [nN] [oO] [mM] [eE])
+    [gGnNoOmMeE])
         sudo xbps-install -S gnome gnome-apps gdm && sudo ln -S /etc/sv/gdm /var/service/
         ;;
-    [kK] [dD] [eE])
+    [kKdDeE])
         sudo xbps install -S kde5 plasma-desktop sddm && sudo ln -S /etc/sv/sddm /var/service/
         ;;
-    [xX] [fF] [cC] [eE])
+    [xXfFcCeE])
         sudo xbps-install -S xfce4 xfce4-screensaver xfce4-session xfce4-terminal lightdm-gtk-greeter && sudo ln -S /etc/sv/lightdm var/service/
         ;;
     *)
