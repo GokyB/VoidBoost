@@ -1,41 +1,60 @@
-#!/bin/bash
+#! /bin/bash
 
-# İnstalling basic stuff
-echo Hello $USER, welcome to the VoidBoost!
-echo
-echo Installing required programs and libraries:
-echo -----------------------------
-sudo xbps-install -Syv void-repo-nonfree void-repo-multilib-nonfree lightdm-gtk-greeter lightdm-gtk-greeter-settings libgcc-32bit libstdc++-32bit libdrm-32bit libglvnd-32bit
-sleep 3
+#Introduction
+echo "Welcome to the VoidBoost."
 
-#Lightdm config
-echo Configurating the Lightdm service.
-rm /var/Service/lxdm && ln -s /etc/sv/lightdm /var/service/
-sleep 3
+wait 3
 
-#Driver configuration
-echo "What brand of gpu are you using? (intel/nvidia)"
-read answer
+echo "Enabling the nonfree and multilib repositories..."
+sudo xbps-install -Sy void-repo-nonfree void-repo-multilib void-repo-multilib-nonfree dbus xorg
+sudo ln -S /etc/sv/dbus /var/service
 
-if [ $answer = 'intel' ]
-then 
-sudo xbps-install -Syv mesa-dri mesa-dri-32bit mesa-vulkan-intel mesa-vulkan-intel-32bit libglapi libglapi-32bit libglvnd libva-glx-32bit
-exit
-fi
+wait 3
 
-if [ $answer = 'nvidia' ]
-then
-echo "Which type of drivers would you like to install?[nouveau/nvidia)"
-read answer
-	if [ $answer = nouveau ]
-	then
-	sudo xbps-install mesa-dri mesa-dri-32bit xf86-video-nouveau
-	
-	if [ $answer = nvidia ]
-	then
-	sudo xbps-install -Syv nvidia nvidia-libs-32bit
-	exit
-	fi
+echo "Installing Pulseaudio."
+sudo xbps-install -S pulseaudio alsa alsa-plugins-pulseaudio
+sudo ln -S /etc/sv/pulseaudio /var/service
 
-echo Void Boost has finished installing the libraries and drivers.You may now use your system.
-exit
+wait 3
+
+read -p  "Please select a desktop enviroment (gnome/kde/xfce): " DE
+case $DE in
+    [gG] [nN] [oO] [mM] [eE])
+        sudo xbps-install -S gnome gnome-apps gdm && sudo ln -S /etc/sv/gdm /var/service/
+        ;;
+    [kK] [dD] [eE])
+        sudo xbps install -S kde5 plasma-desktop sddm && sudo ln -S /etc/sv/sddm /var/service/
+        ;;
+    [xX] [fF] [cC] [eE])
+        sudo xbps-install -S xfce4 xfce4-screensaver xfce4-session xfce4-terminal lightdm-gtk-greeter && sudo ln -S /etc/sv/lightdm var/service/
+        ;;
+    *)
+        echo "Please enter a correct input."
+        ;;
+esac
+
+wait 3
+
+echo "Your desktop environment has been successfully installed."
+
+echo ""
+
+echo "Please select the graphic card that you are using (intel/amd/nvidia): " GPU
+case $GPU in 
+    [iIİ] [nN] [tT] [eE] [lL])
+        sudo xbps-install -S vulkan-loader mesa-vulkan-intel intel-media-driver intel-video-accel
+        ;;
+    [aA] [mM] [dD])
+        sudo xbps-install -S vulkan-loader mesa-vulkan mesa-vaapi mesa-vdpau
+        ;;
+    [nN] [vV] [iIİ] [dD] [iIİ] [aA])
+        sudo xbps-install -S nvidia nvidia-libs-32bit nvidia-settings
+        ;;
+    *)
+        echo "Please enter a valid driver."
+        ;;
+esac
+
+wait 3
+
+echo "Your drivers have been succesfully installed."
