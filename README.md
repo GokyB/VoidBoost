@@ -9,7 +9,11 @@ This program will install the basic libraries, configure your drivers and enable
 
 Installation:
 $ sudo xbps-install -S git
-$ git clone https://github.com/GokyB/VoidBoost
+
+$ git clone https://github.com/GokyB/VoidBoost.git
+
 $ cd VoidBoost
+
 $ chmod +x voidboost.sh
+
 $ ./voidboost.sh
