@@ -41,13 +41,13 @@ echo ""
 
 echo "Please select the graphic card that you are using (intel/amd/nvidia): " GPU
 case $GPU in 
-    [iIİ] [nN] [tT] [eE] [lL])
+    [iIİnNtTeElL])
         sudo xbps-install -S vulkan-loader mesa-vulkan-intel intel-media-driver intel-video-accel
         ;;
-    [aA] [mM] [dD])
+    [aAmMdD])
         sudo xbps-install -S vulkan-loader mesa-vulkan mesa-vaapi mesa-vdpau
         ;;
-    [nN] [vV] [iIİ] [dD] [iIİ] [aA])
+    [nNvViIİddiIİa])
         sudo xbps-install -S nvidia nvidia-libs-32bit nvidia-settings
         ;;
     *)
