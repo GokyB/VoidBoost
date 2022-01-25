@@ -3,19 +3,19 @@
 #Introduction
 echo "Welcome to the VoidBoost."
 
-wait 3
+sleep 3
 
 echo "Enabling the nonfree and multilib repositories..."
 sudo xbps-install -Sy void-repo-nonfree void-repo-multilib void-repo-multilib-nonfree dbus xorg
 sudo ln -S /etc/sv/dbus /var/service
 
-wait 3
+sleep 3
 
 echo "Installing Pulseaudio."
-sudo xbps-install -S pulseaudio alsa alsa-plugins-pulseaudio
+sudo xbps-install -S pulseaudio alsa-plugins-pulseaudio
 sudo ln -S /etc/sv/pulseaudio /var/service
 
-wait 3
+sleep 3
 
 read -p  "Please select a desktop enviroment (gnome/kde/xfce): " DE
 case $DE in
@@ -33,7 +33,7 @@ case $DE in
         ;;
 esac
 
-wait 3
+sleep 3
 
 echo "Your desktop environment has been successfully installed."
 
@@ -55,6 +55,6 @@ case $GPU in
         ;;
 esac
 
-wait 3
+sleep 3
 
 echo "Your drivers have been succesfully installed."
