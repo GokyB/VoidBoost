@@ -5,7 +5,7 @@ VoidBoost is a simple project for configurating fresh-installed Void Linux syste
 </p>
 
 
-This program will install the basic libraries, configure your drivers and enable lightdm-gtk-greeter as default login service.
+This program will install the basic libraries, install the desktop environment and drivers.
 
 Installation:
 $ sudo xbps-install -S git
