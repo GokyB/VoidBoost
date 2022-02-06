@@ -5,7 +5,7 @@ VoidBoost is a simple project for configurating fresh-installed Void Linux syste
 </p>
 
 
-This program will install the basic libraries, install the desktop environment and drivers for the base installation of Void Linux.
+This program will install the basic libraries, desktop environment and drivers for the base installation of Void Linux.
 
    ###Requierements###
 
