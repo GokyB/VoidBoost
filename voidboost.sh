@@ -22,17 +22,29 @@ echo "							            ,,
   |___| |_______|___|______||_______|_______|_______|_______| |___|  
 "
 
+echo"."
 sleep 1
+echo ".."
+sleep 1
+echo "..."
 
 echo "Enabling the nonfree and multilib repositories..."
-sudo xbps-install -Sy void-repo-nonfree void-repo-multilib void-repo-multilib-nonfree dbus xorg
-sudo ln -S /etc/sv/dbus /var/service
+sudo xbps-install -Sy void-repo-nonfree void-repo-multilib void-repo-multilib-nonfree
+
+sleep 2
+
+echo "Installing and enabling dbus..."
+sudo xbps-install -S dbus xorg
+sudo ln -s /etc/sv/dbus /var/service 
 
 sleep 1
 
-echo "Installing Pulseaudio."
+echo
+
+
+echo "Installing Pulseaudio..."
 sudo xbps-install -Sy pulseaudio alsa-plugins-pulseaudio
-sudo ln -S /etc/sv/pulseaudio /var/service
+sudo ln -s /etc/sv/pulseaudio /var/service
 
 sleep 1
 
@@ -45,13 +57,13 @@ read -p ":" DE
 
 case $DE in
     [1])
-        sudo xbps-install -Sy gnome gnome-apps gdm && sudo ln -S /etc/sv/gdm /var/service/
+        sudo xbps-install -Sy gnome gnome-apps gdm && sudo ln -s /etc/sv/gdm /var/service/
         ;;
     [2])
-        sudo xbps install -Sy kde5 plasma-desktop sddm && sudo ln -S /etc/sv/sddm /var/service/
+        sudo xbps install -Sy kde5 plasma-desktop sddm && sudo ln -s /etc/sv/sddm /var/service/
         ;;
     [3])
-        sudo xbps-install -Sy xfce4 xfce4-screensaver xfce4-session xfce4-terminal lightdm-gtk-greeter && sudo ln -S /etc/sv/lightdm var/service/
+        sudo xbps-install -Sy xfce4 xfce4-screensaver xfce4-session xfce4-terminal lightdm-gtk-greeter && sudo ln -s /etc/sv/lightdm var/service/
         ;;
     *)
         echo "Please enter a correct input."
