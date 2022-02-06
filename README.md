@@ -1,7 +1,7 @@
 VoidBoost is a simple project for configurating fresh-installed Void Linux systems
 
 <p align='center'>
-   <img src="https://user-images.githubusercontent.com/58221166/131160495-85bc852c-1954-483e-b276-7ab757ec09a4.png" width='300'>
+   <img src="https://user-images.githubusercontent.com/58221166/152702106-2c3c80d0-1d4d-4194-a1be-f8625188c0f8.png" width='300'>
 </p>
 
 
