@@ -9,7 +9,7 @@ This program will install the basic libraries, install the desktop environment a
 
 Installation:
 
-$ sudo xbps-install -S git
+$ sudo xbps-install -Sy git
 
 $ git clone https://github.com/GokyB/VoidBoost.git
 
