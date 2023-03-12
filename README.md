@@ -9,7 +9,7 @@ This program will install the basic libraries, desktop environment and drivers f
 
    ###Requierements###
 
--64-Bit Void Linux Base System
+-64-Bit Void Linux Base System(Glibc)
 
 -Internet connection
 
@@ -23,6 +23,6 @@ $ git clone https://github.com/GokyB/VoidBoost.git
 
 $ cd VoidBoost
 
-$ chmod +x voidboost.sh
+$ chmod +x voidboost.py
 
-$ ./voidboost.sh
+$ python3 voidboost.py
